@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:hole_hse_inspection/config/background_service.dart';
 import 'package:hole_hse_inspection/config/color.palate.dart';
 import 'package:hole_hse_inspection/config/sse_service.dart';
 import 'package:hole_hse_inspection/views/camera_view.dart';
