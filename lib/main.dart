@@ -35,7 +35,9 @@ void main() async {
     initialRoute = '/login';
   }
 
-  SseService sseService = SseService();
+  print(userData['user']['email']);
+
+  SseService sseService = SseService(email: userData['user']['email']);
   if (Platform.isAndroid) {
     final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
         FlutterLocalNotificationsPlugin();
@@ -49,12 +51,6 @@ void main() async {
     }
   }
   sseService.listenToEvents(); // Start listening when app starts
-
-  // Initialize Background SSE Listener
-  // await initBackgroundService();
-  
-  // Initialize the Background Service Controller
-  // Get.put(BackgroundServiceController());
   
   runApp(MyApp(initialRoute: initialRoute));
 }

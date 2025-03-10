@@ -77,6 +77,22 @@ class LoginController extends GetxController {
     }
   }
 
+  Future<String?> getEmail() async {
+    try {
+      var userBox = await Hive.openBox('userBox');
+      final userData = userBox.get('userData');
+
+      print(userData);
+      if (userData != null && userData['email'] != null) {
+        return userData['email'];
+      }
+      return null;
+    } catch (e) {
+      Get.snackbar("Error", "Failed to retrieve email: $e");
+      return null;
+    }
+  }
+
   Future<Map<String, dynamic>?> getUserData() async {
     try {
       var userBox = await Hive.openBox('userBox');

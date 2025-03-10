@@ -1,0 +1,2 @@
+C:/Users/ASUS/Desktop/live projects/hse_buddy_flutter/android/app/.cxx/Debug/4r481d3l/x86/CMakeFiles/edit_cache.dir
+C:/Users/ASUS/Desktop/live projects/hse_buddy_flutter/android/app/.cxx/Debug/4r481d3l/x86/CMakeFiles/rebuild_cache.dir

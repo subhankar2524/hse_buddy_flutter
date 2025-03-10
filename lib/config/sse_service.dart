@@ -6,11 +6,13 @@ import 'package:http/http.dart' as http;
 final String baseUrl = Constants.baseUrl;
 
 class SseService {
-  final String serverUrl = "${baseUrl}/api/sse/message";
+
+   final String serverUrl;
   final FlutterLocalNotificationsPlugin _notificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-  SseService() {
+  SseService({required String email})
+      : serverUrl = "$baseUrl/api/sse/message?email=$email" {
     _initializeNotifications();
   }
 
@@ -52,5 +54,7 @@ class SseService {
         _showNotification(data["message"]); 
       }
     });
+
+    print("Listening");
   }
 }

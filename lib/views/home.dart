@@ -7,6 +7,7 @@ import 'package:hole_hse_inspection/controllers/search_controller.dart';
 import 'package:hole_hse_inspection/controllers/task_controller.dart';
 import 'package:hole_hse_inspection/views/all_tasks.dart';
 import 'package:hole_hse_inspection/views/draft_report.dart';
+import 'package:hole_hse_inspection/views/notifications.dart';
 import 'package:hole_hse_inspection/views/profile.dart';
 import 'package:hole_hse_inspection/views/view_sites.dart';
 import 'package:hole_hse_inspection/widgets/drawer_button.dart';
@@ -65,17 +66,34 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           actions: [
-            SizedBox(
-              // height: 30,
-              width: 40,
-              child: Image.asset(
-                'assets/images/icon.png',
-                filterQuality: FilterQuality.low,
-              ),
+            Stack(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.notifications_none_sharp),
+                  onPressed: () {
+                    Get.to(()=> Notifications());
+                  },
+                ),
+                Positioned(
+                  left: 0,
+                  top: 0,
+                  child: Container(
+                    padding: const EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Text(
+                      "3",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            SizedBox(
-              width: 30,
-            )
           ]),
       drawer: Drawer(
         backgroundColor: Colors.white,
