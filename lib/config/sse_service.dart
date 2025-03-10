@@ -6,17 +6,18 @@ import 'package:http/http.dart' as http;
 final String baseUrl = Constants.baseUrl;
 
 class SseService {
-
-   final String serverUrl;
+  final String serverUrl;
   final FlutterLocalNotificationsPlugin _notificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
   SseService({required String email})
       : serverUrl = "$baseUrl/api/sse/message?email=$email" {
+
     _initializeNotifications();
   }
 
   void _initializeNotifications() async {
+    print("SSE initialized");
     const AndroidInitializationSettings androidSettings =
         AndroidInitializationSettings('@mipmap/launcher_icon');
 
@@ -45,6 +46,7 @@ class SseService {
   void listenToEvents() async {
     var request = http.Request('GET', Uri.parse(serverUrl));
     var streamedResponse = await request.send();
+    print("Listening");
 
     streamedResponse.stream.transform(utf8.decoder).listen((event) {
       if (event.startsWith("data:")) {
@@ -55,6 +57,5 @@ class SseService {
       }
     });
 
-    print("Listening");
   }
 }

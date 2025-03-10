@@ -51,6 +51,12 @@ void main() async {
     }
   }
   sseService.listenToEvents(); // Start listening when app starts
+
+  // Initialize Background SSE Listener
+  // await initBackgroundService();
+  
+  // Initialize the Background Service Controller
+  // Get.put(BackgroundServiceController());
   
   runApp(MyApp(initialRoute: initialRoute));
 }
